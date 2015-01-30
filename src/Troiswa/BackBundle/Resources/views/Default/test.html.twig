@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+    <a href="{{ path("troiswa_back_prenom") }}">Go to page Prenom</a>
+        <h3>Hello {{ firstname }}</h3>
+    {#
+    <p>Im {{ myAge }} years old.</p>
+    {% if myAge > 18 %}
+        {{ firstname|upper }} est majeur
+    {% else %}
+        {{ firstname|capitalize }} est mineur
+    {% endif %}#}
+
+    {{ dump(allActors) }}
+    {% for key,value in allActors %}
+        Firstname: {{ value.firstname }}  <br> Lastname: {{ value.lastname|upper }} <br> Age: {{ value.age }} <br>
+    {% endfor %}
+    </body>
+</html>

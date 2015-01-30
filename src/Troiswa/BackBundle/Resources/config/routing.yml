@@ -1,0 +1,64 @@
+troiswa_back_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TroiswaBackBundle:Default:index}
+
+troiswa_back_first_page:
+    path:   /test
+    defaults: { _controller: TroiswaBackBundle:Default:test}
+
+troiswa_back_prenom:
+    path:   /prenom
+    defaults: { _controller: TroiswaBackBundle:Default:prenom}
+
+troiswa_back_theme:
+    path: /theme
+    defaults: { _controller: TroiswaBackBundle:Default:theme}
+
+troiswa_back_index:
+    path: /
+    defaults: { _controller: TroiswaBackBundle:Main:index}
+
+troiswa_back_acteurs:
+    path: /acteurs
+    defaults: { _controller: TroiswaBackBundle:Acteur:index}
+
+troiswa_back_films:
+    path: /films
+    defaults: { _controller: TroiswaBackBundle:Film:index}
+
+troiswa_back_categories:
+    path: /categories
+    defaults: { _controller: TroiswaBackBundle:Category:index}
+
+troiswa_back_one_acteur:
+    path: /acteurs/{id}
+    defaults: { _controller: TroiswaBackBundle:Acteur:show}
+    requirements:
+                id: \d+
+
+troiswa_back_one_film:
+    path: /films/{id}
+    defaults: { _controller: TroiswaBackBundle:Film:show}
+    requirements:
+               id: \d+
+
+troiswa_back_AddActor:
+    path: /addactor
+    defaults: { _controller: TroiswaBackBundle:Acteur:addActor}
+
+troiswa_back_AddFilm:
+    path: /addfilm
+    defaults: { _controller: TroiswaBackBundle:Film:addFilm}
+
+troiswa_back_edit:
+    path: /edit/{id}
+    defaults: { _controller: TroiswaBackBundle:Acteur:edit}
+    requirements:
+                   id: \d+
+
+troiswa_back_edit_film:
+    path: /edit_film/{id}
+    defaults: { _controller: TroiswaBackBundle:Film:edit_film }
+    requirements:
+                   id: \d+
+

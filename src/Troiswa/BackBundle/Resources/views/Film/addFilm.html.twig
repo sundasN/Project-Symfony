@@ -1,0 +1,51 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% block heading %}
+    <h1>Add a Film</h1>
+{% endblock %}
+
+{% block container%}
+    {{ form_start(form) }}
+    <div>
+        {{ form_label(form.title, "Title:", {lable_attr: {"class":"form-control"}} )  }}
+        {{ form_widget(form.title, {'attr': {"class":"form-control"}} ) }}
+        {{ form_errors(form.title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description, "Description:", {lable_attr: {"class":"form-group"}} )  }}
+        {{ form_widget(form.description, {attr: {"class":"form-control"}} ) }}
+        {{ form_errors(form.description) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.releaseDate, "Release Date:", {lable_attr: {}} )  }}
+        {{ form_widget(form.releaseDate, {attr: {}} ) }}
+        {{ form_errors(form.releaseDate) }}
+    </div>
+    <div>
+        {{ form_label(form.time, "Running Time:", {lable_attr: {"class":"form-control"}} )  }}
+        {{ form_widget(form.time, {attr: {"class":"form-control"}} ) }}
+        {{ form_errors(form.time) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.note, "Note:", {lable_attr: {"class":"form-control"}} )  }}
+        {{ form_widget(form.note, {attr: {"class":"form-control"}} ) }}
+        {{ form_errors(form.note) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.fichier, "Image:", {lable_attr: {}} )  }}
+        {{ form_widget(form.fichier, {attr: {}} ) }}
+        {{ form_errors(form.fichier) }}
+    </div>
+
+    {{ form_end(form) }}
+
+    {%  if form is empty %}
+        <div class="form-group has-error">
+            {{ form_label({lable_attr: {"class":"control-label"}} )  }}
+            {{ form_widget({attr: {"class":"form-control"}} ) }}
+            {{ form_errors }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+

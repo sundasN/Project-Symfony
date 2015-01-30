@@ -1,0 +1,41 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% block heading %}
+<h1>Tous les acteurs</h1>
+{% endblock %}
+
+{% block container%}
+
+    <a href="addactor" class="btn btn-success" id = "addActor">Add an actor</a>
+
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Biography</th>
+            <th>Action</th>
+        </tr>
+        {% for key,value in actors %}
+        <tr>
+            <td>{{ value.id }}</td>
+            <td>{{ value.firstname|capitalize }}</td>
+            <td>{{ value.lastname|upper }}</td>
+            <td>
+                {% if value.gender == 0 %}
+                    <p>Male</p>
+                {% elseif value.gender == 1 %}
+                    <p>Female</p>
+                {% else %}
+                    <p>error</p>
+                {% endif %}
+            </td>
+            <td>{{ value.dateOfBirth|date("Y-m-d")}}</td>
+            <td>{{ value.biography[:90]}}</td>
+            <td><a href="{{ path("troiswa_back_one_acteur", {"id": value.id}) }}" class="btn btn-success">voir</a><a href="{{ path("troiswa_back_edit", {"id": value.id}) }}" class="btn btn-primary">editer</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

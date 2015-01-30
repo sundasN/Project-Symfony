@@ -1,0 +1,34 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% block heading %}
+    <h3>List of movies</h3>
+{% endblock %}
+
+{% block container%}
+    <a href="addfilm" class="btn btn-success" id = "addActor">Add a film</a>
+
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Descrition</th>
+            <th>Release Date</th>
+            <th>image</th>
+            <th>Running time</th>
+            <th>Note</th>
+            <th>Action</th>
+        </tr>
+        {% for key,value in films %}
+            <tr>
+                <td>{{ value.id }}</td>
+                <td>{{ value.title|capitalize }}</td>
+                <td>{{ value.description[:90] }}</td>
+                <td>{{ value.releaseDate|date("Y-m-d")}}</td>
+                <td><img src="{{ asset('images/')}}{{ value.image }}" class = "imageFilm"></td>
+                <td>{{ value.time}}</td>
+                <td>{{ value.note }}</td>
+                <td><a href="{{ path("troiswa_back_one_film", {"id": value.id}) }}" class="btn btn-success">voir</a><a href="{{ path("troiswa_back_edit_film", {"id": value.id}) }}" class="btn btn-primary">editer</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

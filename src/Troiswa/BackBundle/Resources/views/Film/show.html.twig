@@ -1,0 +1,29 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% block heading %}
+    <h3>Selected movie</h3>
+{% endblock %}
+
+{% block container%}
+
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Descrition</th>
+            <th>Release Date</th>
+            <th>image</th>
+            <th>Running time</th>
+            <th>Note</th>
+        </tr>
+        <tr>
+            <td>{{ film.id }}</td>
+            <td>{{ film.title|capitalize }}</td>
+            <td>{{ film.description[:90] }}</td>
+            <td>{{ film.releaseDate|date("Y-m-d")}}</td>
+            <td><img src="{{ asset('images/')}}{{ film.image }}" class = "imageFilm"></td>
+            <td>{{ film.time}}</td>
+            <td>{{ film.note }}</td>
+        </tr>
+    </table>
+{% endblock %}

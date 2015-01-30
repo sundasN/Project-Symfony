@@ -1,0 +1,28 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% block heading %}
+    <h1>Actor</h1>
+{% endblock %}
+
+{% block container%}
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Biography</th>
+        </tr>
+        <tr>
+            <td>{{ actor.id }}</td>
+            <td>{{ actor.firstname|capitalize }}</td>
+            <td>{{ actor.lastname|upper }}</td>
+            <td>{{ actor.gender }}</td>
+            <td>{{ actor.dateOfBirth|date("Y-m-d")}}</td>
+            <td>{{ actor.biography[:90]}}</td>
+        </tr>
+    </table>
+{% endblock %}
+
+

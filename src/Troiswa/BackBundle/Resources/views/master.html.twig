@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    <title>Master</title>
+</head>
+<body>
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
+    <section>
+        {% block main %}
+            <h1>Mon theme</h1>
+        {% endblock %}
+    </section>
+</body>
+</html>

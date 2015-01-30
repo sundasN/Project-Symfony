@@ -1,0 +1,48 @@
+{%  extends "TroiswaBackBundle::layout.html.twig" %}
+
+{% form_theme form _self %}
+{% block form_errors -%}
+    {% if errors|length > 0 -%}
+            {%- for error in errors -%}
+                <p class = "alert alert-danger">{{ error.message }}</p>
+            {%- endfor -%}
+    {%- endif %}
+{%- endblock form_errors %}
+
+{% block heading %}
+    <h1>Add an Actor</h1>
+{% endblock %}
+
+{% block container%}
+
+    {{ form_start(form, {"attr": {"novalidate":"novalidate"}}) }}
+        <div>
+            {{ form_label(form.firstname, "Your Firstname:", {lable_attr: {"class":"form-control"}} )  }}
+            {{ form_widget(form.firstname, {'attr': {"class":"form-control"}} ) }}
+            {{ form_errors(form.firstname) }}
+        </div>
+        <div>
+            {{ form_label(form.lastname, "Your Lastname:", {lable_attr: {"class":"form-control"}} )  }}
+            {{ form_widget(form.lastname, {attr: {"class":"form-control"}} ) }}
+            {{ form_errors(form.lastname) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.gender, "Gender:", {lable_attr: {"class" : "radio-inline"}} )  }}
+            {{ form_widget(form.gender, {attr: {"class":"form-group"}} ) }}
+            {{ form_errors(form.gender) }}
+        </div>
+        <div>
+            {{ form_label(form.dateOfBirth, "Your Date Of Birth:", {lable_attr: {"class":"form-group"}} )  }}
+            {{ form_widget(form.dateOfBirth, {attr: {"id":"optionsRadiosInline1"}} ) }}
+            {{ form_errors(form.dateOfBirth) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.biography, "Your Biography:", {lable_attr: {"class":"form-group"}} )  }}
+            {{ form_widget(form.biography, {attr: {"class":"form-control"}} ) }}
+            {{ form_errors(form.biography) }}
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
